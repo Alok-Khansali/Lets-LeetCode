@@ -1,2 +1,2 @@
 # Lets-LeetCode
-This Repository contains all the Questions that I have solved on leetcode.
+This Repository contains solutions of all the questions, I have solved on leetcode.
