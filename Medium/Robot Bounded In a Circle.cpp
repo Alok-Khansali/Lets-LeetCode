@@ -5,7 +5,7 @@ public:
         ios_base::sync_with_stdio(false);
 	    cin.tie(NULL);
         int a[4] ={0,0,0,0}, r = 0;                                  //Array to store four directions in format N W S E
-                                                                     // r can be thought of as a direction indicator
+                                                                     //r can be thought of as a direction indicator
         for(char i : instructions)                                   //Traverse the characters in the instructions
         {
             if(i == 'G')                                             //If character is G, go straight in the direction where the robot is looking at
