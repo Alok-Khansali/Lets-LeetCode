@@ -1,4 +1,4 @@
-class Solution {
+class Solution { //Runtime: 24 ms, faster than 95.20% of C++ online submissions for Add Two Numbers.
 public:        
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
     {
@@ -12,24 +12,16 @@ public:
             temp->val = (x+y+c) % 10;
             c = (x+y+c) / 10;
             if (p) 
-            {
                 p->next = temp;
-            }
             p = temp;
             if(l1)
-            {
               l1 = l1->next;
-            }
             if(l2)
-            {
              l2 =  l2->next;
-            }
             temp = new ListNode();
         }
         if (c) 
-        {
             p->next = new ListNode(c); 
-        }
         return st; 
     }
 };
