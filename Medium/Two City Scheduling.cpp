@@ -1,3 +1,44 @@
+//No Priority Queue Solution
+class Solution {   //Runtime: 0 ms, faster than 100.00% of C++ online submissions for Two City Scheduling.
+                  //Memory Usage: 7.9 MB, less than 47.20% of C++ online submissions for Two City Scheduling.
+public:
+    static bool cmp(vector<int> &a, vector<int> &b)
+    {
+        return(abs(a[0] - a[1]) > abs(b[0] - b[1]));     //Lesser the diff more the priority
+    }
+    int twoCitySchedCost(vector<vector<int>>& costs) 
+    {
+       int o = 0,t = 0, l = costs.size(),ans = 0;
+       sort(costs.begin(),costs.end(),cmp);            //Comaprator sort based on the difference of the two values
+       for(auto i : costs)
+       {
+           if(i[0] <= i[1])
+               if(o < l/2)
+               {
+                   ans += i[0];
+                   o++;
+               }
+               else
+               {
+                   ans += i[1];
+                   t++;
+               }
+           else
+               if(t < l/2)
+               {
+                   ans += i[1];
+                   t++;
+               }
+               else
+               {
+                   ans += i[0];
+                   o++;
+               }
+       }
+       return ans;
+    }
+};
+/*
 class Solution {
 public:
 
@@ -24,3 +65,4 @@ public:
       return cost;
     }
 };
+*/

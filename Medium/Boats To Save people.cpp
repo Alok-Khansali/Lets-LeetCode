@@ -8,7 +8,7 @@ public:
 	    cin.tie(NULL);
         
         sort(people.begin(),people.end());
-        int d = people[0], n = 1,ans = 0, j = people.size()-1, i = 0;
+        int  ans = 0, j = people.size()-1, i = 0;
         
         while(i <= j)
         {
