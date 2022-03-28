@@ -1,13 +1,13 @@
-class Solution {
+class Solution { //Runtime: 24 ms, faster than 99.63% of C++ online submissions for Binary Search.
+                 //Memory Usage: 27.6 MB, less than 13.43% of C++ online submissions for Binary Search.
 public:
     int search(vector<int>& nums, int target) 
     {
         
 	    ios_base::sync_with_stdio(false);
 	    cin.tie(NULL);
-        cout.tie(NULL);
-        int i=0,j=nums.size()-1,c=0;
-        while(i<=j)
+        int i=0,j=nums.size()-1;
+        while(i <= j)
         {
             int m = i + (j-i)/2;
             if(nums[m] == target)
