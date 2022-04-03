@@ -1,15 +1,18 @@
-class Solution {                                                  //Modified Binary Search Algorithm
+class Solution { //Runtime: 0 ms, faster than 100.00% of C++ online submissions for Search a 2D Matrix.
+                 //Memory Usage: 9.8 MB, less than 53.69% of C++ online submissions for Search a 2D Matrix.
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) 
     {
+        ios_base::sync_with_stdio(false);
+	    cin.tie(NULL);
         int i = 0,j = matrix[0].size() - 1;
         while(i < matrix.size() and j >= 0)
         {
             if(matrix[i][j] == target) 
                 return true;
-            else if(matrix[i][j] > target) 
+            else if(matrix[i][j] > target)                     //if more, Go a column back
                 j--;
-            else 
+            else                                               //If less, go to next row
                 i++;
         }
         return false;
