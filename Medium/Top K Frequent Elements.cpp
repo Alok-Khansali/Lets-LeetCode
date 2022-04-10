@@ -24,3 +24,36 @@ public:
         return answer;
     }
 };
+//Time Complexity : O(N.Log(N))
+
+/*  //Using min HEAP
+class Solution {  //Runtime: 15 ms, faster than 86.09% of C++ online submissions for Top K Frequent Elements.
+//Memory Usage: 13.8 MB, less than 41.62% of C++ online submissions for Top K Frequent Elements.
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) 
+    {
+        ios_base::sync_with_stdio(false);
+	    cin.tie(NULL);
+        unordered_map<int,int> m;
+        vector<int> v;
+        priority_queue<pair<int,int>,vector<pair<int,int>>, greater<pair<int,int>>> pq;
+        for(int i : nums)
+        {
+               m[i]++;
+        }
+        for(auto it : m)
+        {
+            pq.push({it.second,it.first});
+            if(pq.size() > k)
+                pq.pop();
+        }
+        while(pq.size())
+        {
+            v.push_back(pq.top().second);
+            pq.pop();
+        }
+        return v;
+    }
+};
+//Time Complexity: O(N.Log(K)) 
+*/
