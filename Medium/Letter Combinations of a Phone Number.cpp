@@ -1,3 +1,51 @@
+class Solution {  //When I did it again
+    // Runtime: 0 ms, faster than 100.00% of C++ online submissions for Letter Combinations of a Phone Number.
+    // Memory Usage: 6.3 MB, less than 97.06% of C++ online submissions for Letter Combinations of a Phone Number.
+public:
+    vector<string> v;                    //The Answer Vector
+    void l1(string d)          //single key combination
+    {
+        for(int i = 0;i < d.size(); i++)
+            v.push_back(d.substr(i,1));
+    }
+    void l2(string d,string e)     //dual key combo
+    {
+        for(int i = 0;i < d.size(); i++)
+           for(char j : e)
+                v.push_back(d.substr(i,1) + j); //First Character needs to be taken as a string, otherwise the ASCII values gets added up
+    }
+    void l3(string d,string e,string f) //triple key combo
+    {                
+        for(int i = 0;i < d.size(); i++)
+           for(char j : e)
+                for(char k : f)
+                     v.push_back(d.substr(i,1) + j + k); //First Character needs to be taken as a string, otherwise the ASCII values gets added up
+    }
+    void l4 (string d,string e,string f,string g)    //four key combination
+    {
+        for(int i = 0;i < d.size(); i++)
+           for(char j : e)
+                for(char k : f)
+                    for(char l : g)
+                        v.push_back(d.substr(i,1) + j + k + l); //First Character needs to be taken as a string, otherwise the ASCII values gets added up
+    }
+    vector<string> letterCombinations(string digits) 
+    {
+        string d[] = { "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        int x = digits.size();
+             
+        if(x == 1)
+            l1(d[digits[0]-'0']); 
+        else if(x == 2)
+            l2(d[digits[0]-'0'], d[digits[1]-'0']);
+        else if(x == 3)
+            l3(d[digits[0]-'0'], d[digits[1]-'0'], d[digits[2]-'0']);
+        else if(x == 4)
+             l4(d[digits[0]-'0'], d[digits[1]-'0'], d[digits[2]-'0'], d[digits[3]-'0']);
+        return v;
+    }
+};
+/*
 class Solution {   // Runtime: 0 ms, faster than 100.00% of C++ online submissions for Letter Combinations of a Phone Number.
                    // Memory Usage: 6.3 MB, less than 97.06% of C++ online submissions for Letter Combinations of a Phone Number.
 public:
@@ -59,3 +107,4 @@ public:
         return l4(d[digits[0]-'0'], d[digits[1]-'0'], d[digits[2]-'0'], d[digits[3]-'0']);                 //Four character string
     }
 };
+*/

@@ -52,9 +52,7 @@ public:
                mn = nums[i], mx = mn;
             }
             else if(nums[i] > mx)
-            {
                 mx = nums[i];
-            }
             else if(nums[i] > mn && nums[i] < mx)
                 return true;
         }
