@@ -1,69 +1,70 @@
-class MyCircularQueue {
+class MyCircularQueue
+{
 public:
     vector<int> q;
-    int f=-1,r=-1,l=0;
-    MyCircularQueue(int k) 
+    int f = -1, r = -1, l = 0;
+    MyCircularQueue(int k)
     {
         l = k;
         q.resize(k);
     }
-    
-    bool enQueue(int value) 
-    {
-       ios_base::sync_with_stdio(false);
-       if((r+1)%l == f)
-          return false;
-       if(f == -1 && r == -1)
-       {
-           f = 0;
-           r = 0;
-           q[r] = value;
-           return true;
-       }
-       r = (r+1)%l;
-       q[r] = value;
-       return true;
-    }
-    
-    bool deQueue() 
+
+    bool enQueue(int value)
     {
         ios_base::sync_with_stdio(false);
-        if( r == -1 && f == -1)
-          return false;
-        if(f == r)
+        if ((r + 1) % l == f)
+            return false;
+        if (f == -1 && r == -1)
+        {
+            f = 0;
+            r = 0;
+            q[r] = value;
+            return true;
+        }
+        r = (r + 1) % l;
+        q[r] = value;
+        return true;
+    }
+
+    bool deQueue()
+    {
+        ios_base::sync_with_stdio(false);
+        if (r == -1 && f == -1)
+            return false;
+        if (f == r)
         {
             f = -1;
             r = -1;
         }
         else
         {
-            f = (f+1)%l;
+            f = (f + 1) % l;
         }
         return true;
     }
-    
-    int Front() 
+
+    int Front()
     {
-        if(r == -1 && f == -1)
+        if (r == -1 && f == -1)
             return -1;
         return q[f];
     }
-    
-    int Rear() 
+
+    int Rear()
     {
-        if(r == -1 && f == -1)
+        if (r == -1 && f == -1)
             return -1;
         return q[r];
     }
-    
-    bool isEmpty() 
+
+    bool isEmpty()
     {
-        return  (f == -1 && r == -1);
+        return (f == -1 && r == -1);
     }
-    
-    bool isFull() 
+
+    bool isFull()
     {
-        return ((r+1)%l == f);
+        return ((r + 1) % l == f);
     }
 };
 

@@ -1,28 +1,29 @@
-class Solution { //Runtime: 24 ms, faster than 95.20% of C++ online submissions for Add Two Numbers.
-public:        
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
+class Solution
+{ // Runtime: 24 ms, faster than 95.20% of C++ online submissions for Add Two Numbers.
+public:
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
     {
-        ListNode *st, *p = NULL,  *temp = new ListNode();
+        ListNode *st, *p = NULL, *temp = new ListNode();
         st = temp;
         int c = 0;
-        while (l1  || l2) 
+        while (l1 || l2)
         {
-            int x = l1  ? l1->val : 0;
-            int y = l2  ? l2->val : 0;
-            temp->val = (x+y+c) % 10;
-            c = (x+y+c) / 10;
-            if (p) 
+            int x = l1 ? l1->val : 0;
+            int y = l2 ? l2->val : 0;
+            temp->val = (x + y + c) % 10;
+            c = (x + y + c) / 10;
+            if (p)
                 p->next = temp;
             p = temp;
-            if(l1)
-              l1 = l1->next;
-            if(l2)
-             l2 =  l2->next;
+            if (l1)
+                l1 = l1->next;
+            if (l2)
+                l2 = l2->next;
             temp = new ListNode();
         }
-        if (c) 
-            p->next = new ListNode(c); 
-        return st; 
+        if (c)
+            p->next = new ListNode(c);
+        return st;
     }
 };
 
@@ -31,7 +32,7 @@ public:
 ListNode* reverse(ListNode* h)           //Reversing the list
     {
         ListNode* cur = h, *prev = NULL, *next = NULL;
-        while (cur != NULL) 
+        while (cur != NULL)
         {
             next = cur->next;
             cur->next = prev;
@@ -41,8 +42,8 @@ ListNode* reverse(ListNode* h)           //Reversing the list
         h = prev;
         return h;
     }
-    
-    ListNode* Add(ListNode* l1, ListNode* l2)    //Adding node to head   
+
+    ListNode* Add(ListNode* l1, ListNode* l2)    //Adding node to head
                                                  //NOTE:In the above code (in coloured text) Nodes are added directly at the tail so no reversing is required
     {
         ListNode* st = NULL;
@@ -61,7 +62,7 @@ ListNode* reverse(ListNode* h)           //Reversing the list
            int sum = l1->val + c;
            temp-> val = sum%10;
            temp->next = st   ,   l1=l1->next,     st =  temp;
-           c = sum/10; 
+           c = sum/10;
         }
         while(l2)
         {
@@ -69,7 +70,7 @@ ListNode* reverse(ListNode* h)           //Reversing the list
            int sum = l2->val + c;
            temp-> val = sum%10;
            temp->next = st   ,   l2=l2->next,     st =  temp;
-           c = sum/10; 
+           c = sum/10;
         }
         if(c)
         {
@@ -79,9 +80,9 @@ ListNode* reverse(ListNode* h)           //Reversing the list
         }
         return(reverse(st));
     }
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
     {
-        return Add(l1,l2); 
+        return Add(l1,l2);
     }
 };
 */
