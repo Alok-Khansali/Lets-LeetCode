@@ -16,10 +16,10 @@ public:
            temp->next = t , temp =temp->next , t = t-> next;
         else
            temp->next = u , temp =temp->next , u = u-> next;
-    while(t)
-      temp->next = t , temp =temp->next , t = t-> next;
-    while(u)
-      temp->next = u , temp =temp->next , u = u-> next;
+    if(t)
+      temp->next = t;
+    if(u)
+      temp->next = u; 
     return a->next;
     }
 };

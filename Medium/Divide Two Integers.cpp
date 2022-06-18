@@ -1,4 +1,4 @@
-/* 
+/*
 Using addition, subtraction, right shift and xor
 
 The idea here is to understand that any number can be represented
@@ -24,7 +24,6 @@ if ans > INT_MAX ( 2^31 -1), return INT_MAX, min(ans, INT_MAX )
 if ans < INT_MIN (-2^31), return INT_MIN, max(INT_MIN, ans )
 */
 
-
 // Method 1:
 // Time Complexity : O(31) ~ O(1)
 class Solution
@@ -44,14 +43,13 @@ public:
             }
         if (sgn == 1) // Number is negative
             ans = -ans;
-        return ((ans < INT_MIN) ? INT_MIN : ((ans > INT_MAX) ? INT_MAX : ans ));
+        return ((ans < INT_MIN) ? INT_MIN : ((ans > INT_MAX) ? INT_MAX : ans));
     }
 };
 
-
 // Method 2:
 // Time Complexity : O(31) ~ O(1)
-/*  
+/*
 // Same method but with addition with no subtraction
 class Solution
 {
@@ -75,10 +73,33 @@ public:
 };
 */
 
+/*
+Method 3: Using Logarithmns
+Basic idea: a/b = e^( ln(a))/e ^ (ln(b) ) = e^( ln(a) - ln(b) )
+class Solution
+{
+public:
+    int divide(int dividend, int divisor)
+    {
+        if (dividend == 0)
+            return 0;
+        if (divisor == 0)
+            return INT_MAX;
+        //fabs() : function used to get the absolute values for int and double type both
+        //log() : function used to get the logarithmic value of the entered value [Gives the natural log of the entered number]
+        //exp() : Return the e^(entered value)
+        long long res = double(exp(log(fabs(dividend)) - log(fabs(divisor))));   
+        if ((dividend < 0) ^ (divisor < 0))
+            res = -res;
+        if (res > INT_MAX)
+            res = INT_MAX;
+        return res;
+    }
+};
 
 /*
-// Method 3:
-// Time Complexity : O(Dividend / Divisor) 
+// Method 4:
+// Time Complexity : O(Dividend / Divisor)
 // Naive Method to get the solution, TLE therefore its not suggested
 class Solution
 { // There is Reason why this questioh has so low accuracy
