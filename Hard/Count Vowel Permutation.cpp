@@ -51,7 +51,7 @@ public:
 // DP = Dhaasu Programming
 /*
 You see this question and you are afraid coz this is hard and also coz you know you will be using DP
-And since you are a noob like me, you for recursion, and then u solve it but u get TLE,
+And since you are a noob like me, you went for recursion, and then u solve it but u get TLE,
 U are crying but suddenly u realise that you also know you can do memoisation, but how?
 
 Up until now, as per my approach 1, i wanted to reach the second last character and get its available options
@@ -116,11 +116,12 @@ public:
 // Approach 3
 // Time to go linear
 // 2D to no dp
-// Every chsrscter is related, but how
+// Every character is related, but how
 // Thats the pattern and the answer
-class Solution // Runtime: 2 ms, faster than 95.95% of C++ online submissions for Count Vowels Permutation.
+class Solution
+// Runtime: 2 ms, faster than 95.95% of C++ online submissions for Count Vowels Permutation.
 // Memory Usage: 5.9 MB, less than 95.33% of C++ online submissions for Count Vowels Permutation.
-{
+{ // Somehow it works
 public:
     int countVowelPermutation(int n)
     {
