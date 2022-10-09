@@ -1,5 +1,5 @@
-class Solution  // Runtime: 0 ms, faster than 100.00% of C++ online submissions for Merge Sorted Array.
-                // Memory Usage: 9.2 MB, less than 30.68% of C++ online submissions for Merge Sorted Array.
+class Solution // Runtime: 0 ms, faster than 100.00% of C++ online submissions for Merge Sorted Array.
+               // Memory Usage: 9.1 MB, less than 72.60% of C++ online submissions for Merge Sorted Array.
 {
 public:
     void merge(vector<int> &a, int m, vector<int> &b, int n)

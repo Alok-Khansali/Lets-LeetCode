@@ -16,7 +16,6 @@ public:
 };
 
 // Using Function is space efficient, no idea why
-// Prolly because string addition is not carried using
 class Solution
 {
     // Runtime: 23 ms, faster than 84.77% of C++ online submissions for Construct String from Binary Tree.
