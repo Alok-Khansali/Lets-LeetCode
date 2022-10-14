@@ -1,0 +1,18 @@
+{
+  "files.associations": {
+    "chrono": "cpp",
+    "random": "cpp",
+    "limits": "cpp",
+    "valarray": "cpp",
+    "vector": "cpp",
+    "array": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "initializer_list": "cpp",
+    "regex": "cpp"
+  }
+}

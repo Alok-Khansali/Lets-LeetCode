@@ -1,18 +1,21 @@
 class Solution
+// Runtime: 0 ms, faster than 100.00% of C++ online submissions for Binary Tree Inorder Traversal.
+// Memory Usage: 8.4 MB, less than 74.94% of C++ online submissions for Binary Tree Inorder Traversal.
 {
 public:
     vector<int> ans;
-    void iord(TreeNode *r)
+    void inorder(TreeNode *r)
     {
         if (r == NULL)
             return;
-        iord(r->left);         // Left
+        inorder(r->left);      // Left
         ans.push_back(r->val); // Root
-        iord(r->right);        // Right
+        inorder(r->right);     // Right
     }
     vector<int> inorderTraversal(TreeNode *root)
     {
-        iord(root);
+        ios_base::sync_with_stdio(0);
+        inorder(root);
         return ans;
     }
 };
