@@ -1,4 +1,5 @@
-class MyHashMap {  //Runtime: 76 ms, faster than 100.00% of C++ online submissions for Design HashMap.
+class MyHashMap { //Runtime: 76 ms, faster than 100.00% of C++ online submissions for Design HashMap.
+                  //Memory Usage: 208.2 MB, less than 14.49% of C++ online submissions for Design HashMap.
 public:
     int a[1000001];
     MyHashMap() 
