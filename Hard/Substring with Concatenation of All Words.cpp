@@ -1,5 +1,5 @@
-class Solution //First drafts are bad generally
-{ // Runtime: 886 ms, faster than 34.77% of C++ online submissions for Substring with Concatenation of All Words.
+class Solution // First drafts are bad generally
+{              // Runtime: 886 ms, faster than 34.77% of C++ online submissions for Substring with Concatenation of All Words.
 public:
     vector<int> findSubstring(string s, vector<string> &words)
     {
@@ -20,4 +20,4 @@ public:
         return ans;
     }
 };
-//Sliding Window
+// Sliding Window
