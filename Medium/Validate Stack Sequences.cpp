@@ -4,17 +4,17 @@ class Solution //Runtime: 4 ms, faster than 97.31% of C++ online submissions for
 public:
     bool validateStackSequences(vector<int>& pushed, vector<int>& popped) 
     {
-        stack<int> p;
-        int l = pushed.size(), j = 0;
-        for(int i : pushed)
+        int a[1001] = {0}, l = pushed.size(), r = 0;
+        stack<int> st;
+        for(int i = 0; i < l;i++)
         {
-            p.push(i);
-            while(!p.empty() && j < l && popped[j] == p.top() )
+            st.push(pushed[i]);
+            while(!st.empty() && popped[r] == st.top())
             {
-                p.pop();
-                j++;
+                st.pop();
+                r++;
             }
         }
-        return p.empty();
+        return st.empty();
     }
 };
