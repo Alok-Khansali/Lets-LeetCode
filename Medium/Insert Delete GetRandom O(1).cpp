@@ -18,9 +18,7 @@ public:
         ios_base::sync_with_stdio(false);
         bool t = (s.find(val) != s.end());
         if (t)
-        {
             s.erase(val);
-        }
         return t;
     }
 
