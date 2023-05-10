@@ -1,23 +1,17 @@
 class Solution {
 public:
-    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
-        vector<int>res, LIS;
-        LIS.push_back(obstacles[0]);
-        res.push_back(1);
-        for(int i=1;i<obstacles.size();i++)
-        {
-            if(LIS.back()<=obstacles[i])
-            {
-                LIS.push_back(obstacles[i]);
-                res.push_back(LIS.size());
-            }
-            else
-            {
-                int idx=upper_bound(LIS.begin(),LIS.end(),obstacles[i])-LIS.begin();
-                res.push_back(idx+1);
-                LIS[idx]=obstacles[i];
-            }
-        }
-        return res;
+    bool vow(char c)
+    {
+        return (c == 'a' || c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    }
+    int maxVowels(string s, int k) 
+    {
+        int mx = 0, c = 0;
+        for(int i = 0; i < k; i++)
+          c += vow(s[i]);
+          mx = c;
+        for(int i = k; i < s.size(); i++)
+             c += vow(s[i] - vow(s[i-k])), mx = max(c, mx);
+        return mx;
     }
 };
