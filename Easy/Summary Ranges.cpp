@@ -4,16 +4,16 @@ class Solution //Runtime: 0 ms, faster than 100.00% of C++ online submissions fo
     vector<string> summaryRanges(vector<int>& nums) 
     {
         vector<string> ans;
-        int x = nums.size(),j;
-        for(int i = 0; i < x;i++)
+        int len = nums.size(),start_point;
+        for(int end_point = 0; end_point < len;end_point++)
         {
-            j = i;
-            while(i+1 < x && nums[i+1] == nums[i] + 1)
-                i++;
-            if(j == i)
-                ans.push_back(to_string(nums[j]));
+            start_point = nums[end_point];
+            while(end_point+1 < len && nums[end_point+1] == nums[end_point] + 1)
+                end_point++;
+            if(start_point == nums[end_point])
+                ans.push_back(to_string(start_point));
             else
-                ans.push_back(to_string(nums[j]) + "->" + to_string(nums[i]));
+                ans.push_back(to_string(start_point) + "->" + to_string(nums[end_point]));
         }
         return ans;
     }
