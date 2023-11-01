@@ -1,19 +1,21 @@
-class Solution
-{ // Runtime: 455 ms, faster than 69.11% of C++ online submissions for Minimum Depth of Binary Tree.
-  // Memory Usage: 144.5 MB, less than 91.17% of C++ online submissions for Minimum Depth of Binary Tree.
+class Solution 
+{
 public:
     int minDepth(TreeNode *root)
     {
-        ios_base::sync_with_stdio(0);
+        // If The root is End Point, Return 0
         if (root == NULL)
             return 0;
-        int ans = 1;
-        if (root->left && root->right)
-            ans += min(minDepth(root->left), minDepth(root->right));
-        else if (root->left)
-            ans += minDepth(root->left);
-        else
-            ans += minDepth(root->right);
-        return ans;
+        // If the left node of the current node doesn't exist
+        // Go check the depth of the right sub-tree
+        if (root->left == NULL)
+            return 1 + minDepth(root->right);
+        // If the right node of the current node doesn't exist
+        // Go check the depth of the left sub-tree
+        if (root->right == NULL)
+            return 1 + minDepth(root->left);
+        // If both left and right nodes exists for a current node
+        // Get the minimum of the left and right subtrees of the current node
+        return 1 + min(minDepth(root->left), minDepth(root->right));
     }
 };

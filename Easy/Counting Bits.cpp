@@ -1,3 +1,11 @@
+/*
+See the pattern
+till 2   0 1 1
+till 4   0 1 1 2 1
+till 8   0 1 1 2 1 2 2 3
+till 16  0 1 1 2 1 2 2 3 1 2 2 3 2 3 3 4
+till 32  0 1 1 2 1 2 2 3 1 2 2 3 2 3 3 4 1 2 2 3 2 3 3 4 2 3 3 4 3 4 4 5
+*/
 // Second Drafts are always better
 class Solution // precalculation stuff
 {
@@ -12,8 +20,8 @@ public:
         return ans;
     }
 };
-/*
-// First Draft
+// Approach 1
+// Constructive Algorithm
 class Solution // Runtime: 4 ms, faster than 88.16% of C++ online submissions for Counting Bits.
 {
 public:
@@ -50,4 +58,3 @@ public:
         return ans;
     }
 };
-* /
