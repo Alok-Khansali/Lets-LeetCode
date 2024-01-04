@@ -22,7 +22,7 @@ public:
                 if(nx <= m-1 && ny <= n-1 && nx >=0 && ny>=0)
                 q.push({max(chc,abs(heights[x][y] - heights[nx][ny])),nx ,ny});
             }
-            heights[x][y]=0;
+            heights[x][y]   =0;
             
         }
         

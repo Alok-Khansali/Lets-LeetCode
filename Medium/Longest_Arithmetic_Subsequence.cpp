@@ -30,16 +30,12 @@ public:
                     else if (diff == 0)
                         continue;
                     else
-                    {
-                        seq = max(seq, c);
-                        c = 1;
-                    }
+                        seq = max(seq, c), c = 1;
                 }
             }
         }
         return seq;
     }
 };
-
 
 // crct

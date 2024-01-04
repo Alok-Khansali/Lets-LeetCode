@@ -28,12 +28,37 @@ public:
     }
 };
 
-// Approach 2 : changing the structure
+// Approach 2 : changing the structure and one pass
 class Solution
 {
 public:
     ListNode *reverseBetween(ListNode *head, int left, int right)
     {
-        ListNode *lee =
+        ListNode *NEXT = head, *prev, *temp, *dummy = new ListNode(0);
+        dummy->next = head;
+        prev = dummy;
+        int count = 1;
+        while (count <= right)
+        {
+            if (count == left)
+            {
+                ListNode *start = prev;
+                while (count <= right)
+                {
+                    temp = NEXT->next;
+                    NEXT->next = prev;
+                    prev = NEXT;
+                    NEXT = temp;
+                    count++;
+                }
+                start->next->next = NEXT;
+                start->next = prev;
+                return dummy->next;
+            }
+            NEXT = NEXT->next;
+            prev = prev->next;
+            count++;
+        }
+        return head;
     }
 };

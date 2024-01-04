@@ -1,4 +1,4 @@
-class Solution   //BFS IN O(1)
+class Solution // BFS IN O(1)
 {
 public:
     Node *connect(Node *root)
@@ -21,3 +21,11 @@ public:
         return root;
     }
 };
+int getMinTime(int n, vector<int> tm, vector<int> tt)
+{
+    vector<pair<int, int>> vp;
+    for(int i = 0; i < tm.size();i++)
+    {
+        vp.push_back({tm[i], tt[i]});
+    }
+}
