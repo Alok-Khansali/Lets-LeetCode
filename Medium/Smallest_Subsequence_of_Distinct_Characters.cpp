@@ -1,4 +1,4 @@
-class Solution //100% faster, 91.80% more space efficient
+class Solution // 100% faster, 91.80% more space efficient
 {
 public:
     string smallestSubsequence(string s)
@@ -26,3 +26,4 @@ public:
         return ans;
     }
 };
+

@@ -20,34 +20,34 @@ public:
         return ans;
     }
 };
-// TC = O(N^3)
 
-/*
-//Naive Solution
+
+// TC = O(N^3)
+// Naive Solution 80ms solution, still works
 class Solution
 {
 public:
-    int check(string s)                   //O(N/2)
+    int check(string &s, int st, int en) // O(N/2)
     {
         int l = s.size();
-        for(int i = 0; i < l/2;i++)
-            if(s[i] != s[l-1-i])
+        while (st < en)
+            if (s[st] != s[en])
                 return 0;
+            else
+                st++, en--;
         return 1;
     }
-    int countSubstrings(string s)         //O(N*(N+1)/2)
+    int countSubstrings(string s)
     {
-       int l = s.size(), ans = l;
-        for(int i = l;i>1;i--)
+        int l = s.size(), ans = l;
+        for (int i = l - 1; i >= 1; i--)
         {
-            for(int j = 0; j <= s.size() - i; j++)
+            for (int j = 0; j < i; j++)
             {
-                string w = s.substr(j, i);
-                ans += check(w);
+                if (s[i] == s[j])
+                    ans += check(s, j, i);
             }
         }
         return ans;
     }
 };
-//TC = O(N^3)
-*/

@@ -1,5 +1,5 @@
-// Runtime: 8 ms, faster than 48.35% of C++ online submissions for Sum of Left Leaves.
-// Memory Usage: 13.2 MB, less than 97.21% of C++ online submissions for Sum of Left Leaves.
+// Runtime: 0ms, faster than 100.00% of C++ online submissions for Sum of Left Leaves.
+// Memory Usage: 14.67 MB, less than 81.87% of C++ online submissions for Sum of Left Leaves.
 class Solution
 {
 public:
@@ -18,5 +18,20 @@ public:
     {
         chc(root);
         return sum;
+    }
+};
+
+// Approach 2 : no extra function
+// 100% fast
+class Solution
+{
+public:
+    int sumOfLeftLeaves(TreeNode *root, bool Left = false)
+    {
+        if (root == NULL)
+            return 0;
+        if (root->left == NULL && root->right == NULL)
+            return (Left) ? root->val : 0;
+        return sumOfLeftLeaves(root->left, true) + sumOfLeftLeaves(root->right, false);
     }
 };

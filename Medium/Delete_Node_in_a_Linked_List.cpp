@@ -3,12 +3,21 @@
 class Solution
 {
 public:
-    void deleteNode(ListNode *n)
+    // Function to delete a node from a singly linked list
+    void deleteNode(ListNode *node)
     {
-        while (n->next->next)
-            n->val = n->next->val, n = n->next;
-        n->val = n->next->val;
-        n->next = NULL;
+        // Traverse the list until the second last node
+        while (node->next->next)
+        {
+            // Copy the value of the next node to the current node
+            node->val = node->next->val;
+            // Move to the next node
+            node = node->next;
+        }
+        // Copy the value of the last node to the current node
+        node->val = node->next->val;
+        // Remove the last node by setting the next pointer to NULL
+        node->next = NULL;
     }
 };
 
@@ -18,20 +27,23 @@ public:
 class Solution
 {
 public:
-    void deleteNode(ListNode *n)
+    // Function to delete a node from a singly linked list
+    void deleteNode(ListNode *node)
     {
-        ListNode *nd = n->next->next;
-        n->val = n->next->val;
-        n->next = nd;
+        // Store the next node's pointer temporarily
+        ListNode *nextNode = node->next->next;
+        // Copy the value of the next node to the current node
+        node->val = node->next->val;
+        // Update the next pointer to skip the next node
+        node->next = nextNode;
     }
 };
 
 // The Game of pointers, just change the referance
-class Solution
-{
+class Solution {
 public:
-    void deleteNode(ListNode *n)
-    {
-        *n = *n->next;
+    void deleteNode(ListNode *node) {
+        // Copy the value of the next node to the current node
+        *node = *(node->next);
     }
 };
