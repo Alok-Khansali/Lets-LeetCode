@@ -16,6 +16,8 @@
     "regex": "cpp",
     "bitset": "cpp",
     "utility": "cpp",
-    "*.tcc": "cpp"
+    "*.tcc": "cpp",
+    "cmath": "cpp",
+    "complex": "cpp"
   }
 }

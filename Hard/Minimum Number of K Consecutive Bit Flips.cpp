@@ -5,6 +5,7 @@ public:
     {
         int flipCount = 0; // Tracks the current number of flips
         int result = 0;    // Tracks the total number of flips performed
+
         for (int i = 0; i < nums.size(); i++)
         {
             // If the current index is outside the range of the last flip window, adjust flipCount
@@ -18,7 +19,6 @@ public:
                 // If flipping is not possible because the remaining elements are less than k
                 if (i + k > nums.size())
                     return -1;
-
                 // Mark the current position as flipped and update counters
                 nums[i] = -1;
                 flipCount++;

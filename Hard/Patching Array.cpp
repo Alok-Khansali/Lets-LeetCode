@@ -1,0 +1,59 @@
+class Solution
+{
+public:
+    int minPatches(vector<int> &nums, int n)
+    {
+        long long int currentSum = 1; // Tracks the smallest number that cannot be formed
+        int patches = 0, index = 0;   // Pathches to keep track of the patch and Index to iterate through the nums array
+
+        while (currentSum <= n)
+        {
+            // If the current number in nums is within the range and can be added to currentSum
+            if (index < nums.size() && nums[index] <= currentSum)
+            {
+                currentSum += nums[index]; // Include nums[index] in the range
+                index++;
+            }
+            else
+            {
+                // Add a patch (currentSum itself) to cover the range up to currentSum * 2 - 1
+                currentSum += currentSum;
+                patches++;
+            }
+        }
+        return patches;
+    }
+};
+// Simpler Version
+class Solution
+{
+public:
+    int minPatches(vector<int> &nums, int n)
+    {
+        ios_base::sync_with_stdio(0);
+        long long int currentSum = 1; // Tracks the smallest number that cannot be formed
+        int patches = 0, index = 0;   // Pathches to keep track of the patch and Index to iterate through the nums array
+        for (int i : nums)
+        {
+            if (i > n)
+                break;
+            // If the current number in nums is within the range and can be added to currentSum
+            while (currentSum < i)
+            {
+                patches++;
+                // Add a patch (currentSum itself) to cover the range up to currentSum * 2 - 1
+                currentSum += currentSum;
+            }
+            // If the current number in nums is within the range and can be added to currentSum
+            currentSum += i;
+        }
+        while (currentSum <= n)
+        {
+            patches++;
+            // Add a patch (currentSum itself) to cover the range up to currentSum * 2 - 1
+            currentSum += currentSum;
+        }
+        return patches;
+    }
+};
+
