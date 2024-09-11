@@ -4,33 +4,41 @@ class Solution
 public:
     int minimumDeletions(string s)
     {
-        int ans = INT_MAX, len = s.size(), bc = 0, ac = 0;
-        int a[len + 1], b[len + 1];
-        for (int i = 0; i < len; i++)
+        int minDeletions = INT_MAX; // To keep track of the minimum deletions required
+        int length = s.size();
+        int bCount = 0;                          // To count 'b' characters from the start
+        int aCount = 0;                          // To count 'a' characters from the end
+        vector<int> bPrefixCount(length + 1, 0); // To store the prefix count of 'b'
+        vector<int> aSuffixCount(length + 1, 0); // To store the suffix count of 'a'
+        // Calculate prefix count of 'b'
+        for (int i = 0; i < length; i++)
         {
-            b[i] = bc;
-            if (s[i] == 'b')
-                bc++;
-        }
-        for (int i = len - 1; i >= 0; i--)
-        {
-            if (s[i] == 'a')
-                ac++;
-            a[i] = ac;
-        }
-        ac -= s[0] == 'a';
-        bc -= s[len - 1] == 'b';
-        ans = min(ac, bc);
-        for (int i = 0; i < len; i++)
-        {
+            bPrefixCount[i] = bCount;
             if (s[i] == 'b')
             {
-                ans = min(ans, b[i] + a[i]);
+                bCount++;
             }
         }
-        return ans;
+        // Calculate suffix count of 'a'
+        for (int i = length - 1; i >= 0; i--)
+        {
+            if (s[i] == 'a')
+                aCount++;
+            aSuffixCount[i] = aCount;
+        }
+        // Adjust counts for the first 'a' and last 'b'
+        aCount -= s[0] == 'a';
+        bCount -= s[length - 1] == 'b';
+        // Calculate the minimum deletions
+        minDeletions = min(aCount, bCount);
+        for (int i = 0; i < length; i++)
+            if (s[i] == 'b')
+                minDeletions = min(minDeletions, bPrefixCount[i] + aSuffixCount[i]);
+
+        return minDeletions;
     }
 };
+
 // approach 2
 //  optimum dp
 class Solution

@@ -3,17 +3,34 @@ class Solution
   // Memory Usage: 8.5 MB, less than 64.64% of C++ online submissions for Binary Tree Postorder Traversal.
 public:
     vector<int> ans;
-    void post(TreeNode *r)
+    void post(TreeNode *root)
     {
-        if (r == NULL)
+        if (root == NULL)
             return;
-        post(r->left);         // left
-        post(r->right);        // root
-        ans.push_back(r->val); // root
+        post(root->left);         // left
+        post(root->right);        // root
+        ans.push_back(root->val); // root
     }
     vector<int> postorderTraversal(TreeNode *root)
     {
         post(root);
+        return ans;
+    }
+};
+
+// All in one place
+// 100% faster
+class Solution
+{
+public:
+    vector<int> ans;
+    vector<int> postorderTraversal(TreeNode *root)
+    {
+        if (root == NULL)
+            return {};
+        postorderTraversal(root->left);  // left
+        postorderTraversal(root->right); // right
+        ans.push_back(root->val);        // root
         return ans;
     }
 };
