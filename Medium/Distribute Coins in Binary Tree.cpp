@@ -12,7 +12,6 @@ public:
         return r->val + left + right - 1;
     }
     int distributeCoins(TreeNode *root)All Ancestors of a Node in a Directed Acyclic Graph
-
     {
         moves(root);
         return minimumMoves;
