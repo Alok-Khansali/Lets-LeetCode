@@ -1,4 +1,4 @@
-class Solution // 84% faster, 93.3% better space
+class Solution // 74% faster, 93% better space
 {
 public:
     vector<int> asteroidCollision(vector<int> &asteroids)
@@ -7,7 +7,7 @@ public:
         int c = -1;
         for (int i : asteroids)
         {
-            if (c < 0 ||  i > 0)
+            if (c < 0 || i > 0)
             {
                 ans.push_back(i);
                 ++c;
